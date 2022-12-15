@@ -1,0 +1,115 @@
+@mixin regular {
+    font-size: .75rem;
+    color: #9CA3AF;
+    max-width: 19.0625rem;
+}
+@mixin heading {
+    font-size: 1rem;
+    color: white;
+    margin: 1.75rem 0 1.625rem 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.footerWrapper {
+    background: #131313;
+    padding: 5rem 12% 5.0625rem 9%;
+    margin-top: 3.8125rem;
+    .footerMain {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #374151;
+        padding-bottom: 3.8125rem;
+        @media screen and (max-width:1019px) {
+            display: grid;
+        }
+        @media screen and (max-width:480px) {
+            border: none;
+            padding-bottom: .4375rem;
+        }
+        .left {
+            @media screen and (max-width:480px) {
+                border-bottom: 1px solid #374151;
+                padding-bottom: 1.25rem;
+            }
+            .banner {
+                display: flex;
+                align-items: center;
+                @media screen and (max-width:480px) {
+                    justify-content: center;
+                }
+                >svg {
+                    transform: scale(0.7);
+                }
+                .bannerTitle {
+                    font-size: 1.25rem;
+                    margin: 0;
+                    color: white;
+                }
+            }
+            .desc {
+                @include regular();
+                margin: 2.1875rem 0 2.5rem 0;
+                @media screen and (max-width:1019px) {
+                    margin-top: 1.125rem;
+                }
+                @media screen and (max-width:480px) {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+        .middle {
+            .heading {
+                @include heading();
+            }
+            .contact {
+                display: flex;
+                align-items: center;
+                column-gap: 1.1875rem;
+                >svg {
+                    min-width: fit-content;
+                }
+                .contactdesc {
+                    @include regular();
+                }
+            }
+            .link {
+                margin-right: 2rem;
+                >svg {
+                    path {
+                        fill: #9CA3AF;
+                    }
+                }
+            }
+        }
+        .last {
+            .lastTitle {
+                @include heading();
+            }
+            .link {
+                @include regular();
+            }
+        }
+    }
+    .termsAndConditions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1.5625rem;
+        .text {
+            @include regular();
+            margin: 0;
+        }
+
+        .rightSec {
+            display: flex;
+            column-gap: 1.5rem;
+            .conditions {
+                font-size: .875rem;
+                color: #D1D5DB;
+                font-weight: 500;
+                text-decoration: underline;
+                cursor: pointer;
+                margin: 0;
+            }
+        }
+    }
+}

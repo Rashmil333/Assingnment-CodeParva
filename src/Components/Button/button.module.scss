@@ -1,0 +1,32 @@
+@mixin pink {
+    background-color: #FF6584;
+    border: none;
+    color: white;
+}
+.btn {
+    border: 1px solid black;
+    outline: none;
+    padding: .625rem 1.25rem;
+    border-radius: .375rem;
+    font-size: 1.25rem;
+    background: transparent;
+    cursor: pointer;
+    &.footer {
+        @include pink();
+        font-size: 1rem;
+        padding: .75rem 1rem;
+        @media screen and (max-width:480px) {
+            width: 80%;
+            margin-left: 2.25rem;
+        }
+    }
+    &.pink {
+        @include pink();
+    }
+    @media screen and (max-width:480px) {
+        font-size: 1rem;
+    }
+    >svg {
+        margin: 0 0 -0.1875rem .6875rem;
+    }
+}

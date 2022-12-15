@@ -1,0 +1,55 @@
+@mixin inputsm {
+    @media screen and (max-width:480px) {
+        min-width: -webkit-fill-available;
+    }
+}
+.inputWithlabel {
+    margin-bottom: 1.5rem;
+    .label {
+        font-size: 16px;
+        margin: 0 0 .5rem 0;
+        position: relative;
+        .star {
+            position: absolute;
+            color: #F34C4C;
+            margin-left: .3125rem;
+        }
+    }
+
+    .input {
+        outline: none;
+        background: #FFFFFF;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+        padding: .875rem 1rem;
+        min-width: 20.375rem;
+        font-size: 1rem;
+        font-weight: 700;
+        @include inputsm();
+    }
+    ::placeholder {
+        color: black;
+    }
+    .select {
+        display: flex;
+        padding: .875rem 1rem;
+        min-width: 20.375rem;
+        background: white;
+        align-items: center;
+        max-width: fit-content;
+        justify-content: space-between;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+        position: relative;
+        cursor: pointer;
+        @include inputsm();
+        >svg {
+            cursor: pointer;
+        }
+        .selected {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0;
+        }
+    }
+}
