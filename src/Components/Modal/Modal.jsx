@@ -12,7 +12,7 @@ const Modal = (props) => {
             <div className={styles.modalBody}>
                 {children}
             </div>
-            <span className={styles.crossicon} onClick={close}><CrossIcon /></span>
+            {/* <span className={styles.crossicon} onClick={close}><CrossIcon /></span> */}
         </div>
     )
 }

@@ -1,5 +1,10 @@
+import WindIcon from './static/wind 1.svg';
+import VisiIcon from './static/visibility 1.svg';
+import HumidityIcon from './static/humidity 1.svg';
 import { SvgFB, SvgInstagram, SvgLinkedIn, SvgLocation, SvgMailIcon, SvgTwitter } from "./static/Svgs";
-
+export {
+    WindIcon, VisiIcon, HumidityIcon
+}
 export const Links = [
     {
         id: 0,

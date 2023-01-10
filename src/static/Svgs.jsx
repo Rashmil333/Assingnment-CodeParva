@@ -244,4 +244,4 @@ export const CrossIcon = () => {
         </svg>
 
     )
-}
+};

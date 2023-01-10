@@ -3,10 +3,11 @@ import Button from '../../../Components/Button/Button';
 import InputWithLabel from '../../../Components/InputWithLabel/InputWithLabel';
 import { BreedData, Fields, Petata } from '../../../constant';
 import styles from './form.module.scss';
+import { CrossIcon } from '../../../static/Svgs';
 
 
 const Form = (props) => {
-    const { caption, ques, submitbtnName, onSubmit } = props;
+    const { caption, ques, submitbtnName, onSubmit, close } = props;
     const [reset, setReset] = useState(false);
     const [formData, setFormData] = useState({});
     const formHandler = useCallback((category, value) => {
@@ -90,6 +91,7 @@ const Form = (props) => {
                 <Button title={submitbtnName} varient='pink' onClickHandler={() => { onSubmit(formData, setReset, setFormData); console.log(formData); }} />
             </div>
             {/* {errors.length > 0 ? <p className={styles.error}>Please fill {errors.join(', ')}</p> : null} */}
+            <span className={styles.crossicon} onClick={close}><CrossIcon /></span>
         </div>
     )
 }

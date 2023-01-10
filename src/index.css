@@ -5,8 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #EBF9FF;
+  /* background-color: black; */
+  /* background-image: url('https://static.vecteezy.com/system/resources/previews/005/117/976/original/house-in-a-snowy-forest-christmas-trees-mountains-snow-flat-cartoon-style-illustration-vector.jpg'); */
+  /* background-image: url('https://img.freepik.com/premium-vector/cartoon-cute-little-boy-hiding-umbrella-during-rain-weather_338059-30.jpg'); */
+  /* background-size: 100% 100%; */
+  background: linear-gradient(to right, #D99EC9,
+      #F6F0C4);
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

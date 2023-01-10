@@ -13,7 +13,10 @@
     }
     .submitbtn {
         text-align: left;
-        margin-top: 3.5rem;
+        // margin-top: 3.5rem;
+        position: absolute;
+        bottom: 56px;
+        right: 40px;
         @media screen and (max-width:768px) {
             // position: absolute;
             // bottom: 32px;
@@ -30,5 +33,11 @@
         position: absolute;
         bottom: 2.25rem;
         left: 31px;
+    }
+    .crossicon {
+        position: absolute;
+        top: .875rem;
+        right: .875rem;
+        cursor: pointer;
     }
 }

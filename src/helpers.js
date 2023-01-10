@@ -110,3 +110,21 @@ export function ValidateEmail(mail) {
     // alert("You have entered an invalid email address!")
     return (false)
 };
+
+export function checkData(preData, formData) {
+    let result = false;
+    console.log(preData);
+    console.log(formData);
+    preData.forEach((item) => {
+        if (item.breed === formData.breed && formData.petName === 'Dog' && item.petType === 'Dog') {
+            result = true;
+            return;
+        }
+    })
+    return result;
+};
+
+export function K2C(temp) {
+    const tempC = Math.floor(temp - 273.15);
+    return tempC;
+}

@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+body {
+    background: beige;
+}
+
+.weatherSetup {
+    width: 100vw;
+    height: 100%;
+    // position: relative;
+
+
+    .mainContainer {
+        // position: absolute;
+        // left: 50%;
+        // top: 55%;
+        // transform: translate(-50%, -50%);
+        z-index: 100;
+        text-align: center;
+        margin: auto;
+        max-width: fit-content;
+        margin-top: 111px;
+        position: relative;
+
+        @media screen and (max-width:480px) {
+            padding: 0 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .input {
+            padding: .625rem .9375rem;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            box-shadow: 0 0 .9375rem grey;
+            font-size: 1.875rem;
+            font-family: 'Jost', sans-serif;
+            max-width: -webkit-fill-available;
+
+        }
+
+        .centerDiv {
+            background: linear-gradient(48.18deg, #FDAFA3 5.07%, #E654BE 34.01%, #B329EE 60.92%, #B739F2 90.83%);
+            background-blend-mode: multiply;
+            border-radius: 100px;
+            position: relative;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 3.125rem;
+            width: 20.6875rem;
+            height: 21.4375rem;
+            box-shadow: 0 0 100px grey;
+
+            @media screen and (max-width:480px) {
+                width: inherit;
+            }
+
+            &::after {
+                position: absolute;
+                content: '';
+                width: 0px;
+                height: 0px;
+                // border: 2px solid red;
+                box-shadow: 0 0 100px 100px white;
+                top: 0;
+                right: 0;
+            }
+
+            .type {
+                font-family: 'Jost';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 2.8125rem;
+                margin-top: 1.625rem;
+                margin-bottom: 20px;
+                color: white;
+                font-family: 'Jost', sans-serif;
+
+            }
+
+            .temp {
+                font-size: 14.875rem;
+                font-family: 'Jost', sans-serif;
+                color: #FFFFFF;
+                height: 19.625rem;
+                background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 16.15%, rgba(255, 255, 255, 0.869792) 81.77%, rgba(245, 220, 220, 0) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+                margin: 0;
+                margin-top: -4.375rem;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: 1.1875rem;
+                    top: 5.3125rem;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background: transparent;
+                    border: 7px solid #faf4ff;
+                }
+            }
+
+            .cityName {
+                padding: .375rem .9375rem;
+                background: #FEFEFE;
+                box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+                border-radius: 21px;
+                max-width: fit-content;
+                position: absolute;
+                top: -2.5625rem;
+                left: 50%;
+                transform: translate(-50%, 0);
+                font-size: 1.25rem;
+                font-family: 'Jost', sans-serif;
+
+            }
+        }
+
+        .bottomDiv {
+            padding: 1.25rem 1.875rem;
+            background: #FFFFFF;
+            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            margin-top: 6.25rem;
+            display: flex;
+            justify-content: space-between;
+
+            .measures {
+                align-items: center;
+                text-align: center;
+
+                .value {
+                    font-family: 'Jost', sans-serif;
+                    font-size: .9375rem;
+                    margin: .625rem 0 0 0;
+                }
+
+                .typo {
+                    font-family: 'Jost', sans-serif;
+                    font-size: .75rem;
+                    margin: 0;
+                    color: #B8AFAF;
+                }
+            }
+        }
+    }
+
+    .weatherenvironment {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
