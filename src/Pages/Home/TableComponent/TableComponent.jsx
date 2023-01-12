@@ -2,9 +2,10 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { TableData, TableHeaders } from '../../../constant';
 import { INDEXDBNEW } from '../../../helpers';
+import { CrossIcon } from '../../../static/Svgs';
 import styles from './tablecomponent.module.scss';
 
-const TableComponent = () => {
+const TableComponent = ({ close }) => {
     const [selectedNav, setSelectedNav] = useState('dog');
     const [catsdata, setCatsData] = useState();
     useEffect(() => {
@@ -36,6 +37,7 @@ const TableComponent = () => {
                     )
                 })}
             </div>
+            <span className={styles.crossicon} onClick={close}><CrossIcon /></span>
         </div>
     )
 }

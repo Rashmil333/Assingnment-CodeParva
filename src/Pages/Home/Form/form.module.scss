@@ -5,28 +5,35 @@
         color: rgba(0, 0, 0, 0.7);
         margin: 0 0 2.5rem 0;
     }
+
     .firstQues {
         font-weight: 700;
         font-size: 1.5rem;
         color: rgba(0, 0, 0, 0.7);
         margin: 0 0 2rem 0;
     }
+
     .submitbtn {
         text-align: left;
         // margin-top: 3.5rem;
         position: absolute;
         bottom: 56px;
         right: 40px;
+
         @media screen and (max-width:768px) {
             // position: absolute;
             // bottom: 32px;
             // right: 40px;
             text-align: right;
         }
+
         @media screen and (max-width:480px) {
             text-align: center;
+            position: inherit;
+            margin-bottom: 3rem;
         }
     }
+
     .error {
         // margin: 2.0625rem 0 0 1.25rem;
         color: red;
@@ -34,6 +41,7 @@
         bottom: 2.25rem;
         left: 31px;
     }
+
     .crossicon {
         position: absolute;
         top: .875rem;

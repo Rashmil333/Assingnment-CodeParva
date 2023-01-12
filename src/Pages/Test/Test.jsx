@@ -6,9 +6,10 @@ import { useRef } from 'react';
 import { a, useSpring } from '@react-spring/three';
 import { useCallback, useEffect } from 'react';
 import { useState } from 'react';
-import { Measures } from './constant';
+import { Measures, weatherapihandler } from './constant';
 import { K2C } from '../../helpers';
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import UseDebounce from '../../Hooks/UseDeBounce';
 
 const Model = ({ url }) => {
     const [model, setModel] = useState();
@@ -146,19 +147,11 @@ const SunEnvironment = () => {
     )
 }
 
-const Test = () => {
+const WeatherApp = () => {
     const [data, setData] = useState({});
-    const getData = useCallback(async (e) => {
-        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${e.target.value}&appid=886705b4c1182eb1c69f28eb8c520e20`, {
-            method: 'GET',
-            // headers: {
-            //     'Referrer-Policy': 'no-referrer'
-            // }
-        });
-        const result = await res.json()
-        console.log(result);
-        setData(result);
-    }, [setData]);
+    const [val, setVal] = useState('');
+    const [sunHovered, setSunHovered] = useState(false);
+    const debouncedSearch = UseDebounce(val, 1000);
 
     const mesauresHandler = useCallback((index) => {
         switch (index) {
@@ -172,11 +165,19 @@ const Test = () => {
         }
     }, [data]);
 
-    const [sunHovered, setSunHovered] = useState(false);
+    useEffect(() => {
+        async function getDatum() {
+            const res = await fetch(weatherapihandler(debouncedSearch));
+            const result = await res.json()
+            setData(result);
+        }
+        if (debouncedSearch) getDatum()
+    }, [debouncedSearch]);
+
     return (
         <div className={styles.weatherSetup}>
             <div className={styles.mainContainer}>
-                <input type='text' placeholder='CITY...' className={styles.input} onChange={(e) => getData(e)} />
+                <input type='text' placeholder='CITY...' className={styles.input} onChange={(e) => setVal(e.target.value)} />
                 <div className={styles.centerDiv}>
                     {data?.name ? (<p className={styles.cityName}>{data.name}</p>) : null}
                     <p className={styles.type}>{(data?.main?.humidity > 60) && ('Rainy') || (K2C(data?.main?.temp) > 25) && ('Sunny') || (K2C(data?.main?.temp) < 20) && ('snow') || ('cloud')}</p>
@@ -215,4 +216,4 @@ const Test = () => {
     )
 }
 
-export default Test;
+export default WeatherApp;

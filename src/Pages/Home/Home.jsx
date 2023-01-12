@@ -75,7 +75,12 @@ const Home = () => {
                 (
                     <Modal  >
                         {showModal.active === 'allPets' ? (
-                            <TableComponent />
+                            <TableComponent
+                                close={() => {
+                                    setShowModal({ active: '', open: false });
+                                    document.body.style.overflow = 'scroll'
+                                }}
+                            />
                         ) :
                             (<Form
                                 caption={showModal.active === 'adopt' ? 'Adopt a pet' : 'Give Away'}

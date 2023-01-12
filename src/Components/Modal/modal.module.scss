@@ -5,18 +5,21 @@
     background: rgba(0, 0, 0, 0.3);
     top: 0;
     left: 0;
-    overflow: scroll;
+    // overflow: scroll;
     // background: #EBF9FF;
     animation: 0.2s show ease-out;
     z-index: 5;
+
     @keyframes show {
         0% {
             opacity: 0;
         }
+
         100% {
             opacity: 1;
         }
     }
+
     .modalBody {
         max-width: 41.3125rem;
         // margin: 1.5rem 2.5rem 2rem 2rem;
@@ -25,7 +28,13 @@
         background: #EBF9FF;
         position: relative;
         height: 100%;
+        overflow-y: scroll;
+
+        @media screen and (max-width:480px) {
+            padding: 24px 1rem 0 1rem;
+        }
     }
+
     .crossicon {
         position: absolute;
         top: .875rem;
