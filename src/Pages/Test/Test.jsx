@@ -6,7 +6,7 @@ import { useRef } from 'react';
 import { a, useSpring } from '@react-spring/three';
 import { useCallback, useEffect } from 'react';
 import { useState } from 'react';
-import { Measures, weatherapihandler } from './constant';
+import { ErrorData, Measures, weatherapihandler } from './constant';
 import { K2C } from '../../helpers';
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import UseDebounce from '../../Hooks/UseDeBounce';
@@ -16,7 +16,6 @@ const Model = ({ url }) => {
     useEffect(() => {
         new GLTFLoader().load(url, setModel);
     }, [url]);
-    console.log(model)
     return (
         model ? <primitive object={model.scene} /> : null
     )
@@ -169,7 +168,11 @@ const WeatherApp = () => {
         async function getDatum() {
             const res = await fetch(weatherapihandler(debouncedSearch));
             const result = await res.json()
-            setData(result);
+            if (result?.cod === '404') {
+                setData(ErrorData);
+            } else {
+                setData(result);
+            }
         }
         if (debouncedSearch) getDatum()
     }, [debouncedSearch]);
